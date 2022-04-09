@@ -1,7 +1,10 @@
+import React from "react";
+import Cartitem from "./Cartitem.component";
+
 function App() {
   return (
     <div className="App">
-        <h1>react</h1>
+        <Cartitem/>
     </div>
   );
 }
