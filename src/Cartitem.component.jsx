@@ -1,35 +1,8 @@
 import React from "react";
 
 class Cartitem extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            title: 'phone',
-            price: '8000',
-            qty: 1,
-            img: ''
-        }
-    }
-
-    increaseQty = () => {
-        this.setState((prevState)=>{
-            return {
-                qty: prevState.qty + 1
-            }
-        })
-    }
-
-    decreaseQty = () => {
-        this.setState((prevState)=>{
-            if(prevState.qty>0){
-                return{
-                    qty: prevState.qty - 1
-                }
-            }
-        })
-    }
 render(){
-    const { title, price, qty } = this.state
+    const { title, price, qty} = this.props.product;
     return (
         <div className="cart-item">
             <div className="left-block">
@@ -45,14 +18,14 @@ render(){
                         alt="increase"
                         className="action-icons"
                         src="https://cdn-icons-png.flaticon.com/512/1828/1828926.png"
-                        onClick={this.increaseQty}    
+                        onClick={()=> this.props.onProductIncrease(this.props.product)}    
                     />
 
                     <img
                         alt="decrease" 
                         className="action-icons" 
                         src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
-                        onClick={this.decreaseQty}
+                        onClick={() => this.props.onProductDecrease(this.props.product)}
 
                     />
                     
