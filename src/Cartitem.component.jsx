@@ -33,6 +33,7 @@ render(){
                         alt="delete" 
                         className="action-icons" 
                         src="https://cdn-icons-png.flaticon.com/512/6861/6861362.png" 
+                        onClick={()=>{this.props.onDelete(this.props.product.id)}}
                     />
                 </div>
             </div>
