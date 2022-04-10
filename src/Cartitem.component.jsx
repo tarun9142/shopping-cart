@@ -1,12 +1,12 @@
 import React from "react";
 
-class Cartitem extends React.Component {
-render(){
-    const { title, price, qty} = this.props.product;
+const Cartitem = (props) =>{
+    const { title, price, qty, img} = props.product;
+    const {product, onProductIncrease, onProductDecrease, onDelete} = props;
     return (
         <div className="cart-item">
             <div className="left-block">
-                <img style={styles.image} alt={'product'} />
+                <img src={img} style={styles.image} alt={'product'}/>
             </div>
             <div className="right-block">
                 <div style={{ fontSize: 25 }}>{title}</div>
@@ -18,14 +18,14 @@ render(){
                         alt="increase"
                         className="action-icons"
                         src="https://cdn-icons-png.flaticon.com/512/1828/1828926.png"
-                        onClick={()=> this.props.onProductIncrease(this.props.product)}    
+                        onClick={()=> onProductIncrease(product)}    
                     />
 
                     <img
                         alt="decrease" 
                         className="action-icons" 
                         src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
-                        onClick={() => this.props.onProductDecrease(this.props.product)}
+                        onClick={() => onProductDecrease(product)}
 
                     />
                     
@@ -33,19 +33,20 @@ render(){
                         alt="delete" 
                         className="action-icons" 
                         src="https://cdn-icons-png.flaticon.com/512/6861/6861362.png" 
-                        onClick={()=>{this.props.onDelete(this.props.product.id)}}
+                        onClick={()=>{onDelete(product.id)}}
                     />
                 </div>
             </div>
         </div>
     );
 }
-}
 
 const styles = {
     image: {
-        height: 40,
-        width: 40
+      height: 110,
+      width: 110,
+      borderRadius: 4,
+      background: '#ccc'
     }
 }
 
